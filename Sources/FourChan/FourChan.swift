@@ -11,7 +11,7 @@ public typealias Archive = [PostNumber]
 
 public typealias Catalog = [Page]
 
-public struct Board: Codable, Hashable {
+public struct Board: Codable, Hashable, Sendable {
   public let board: BoardName
   public let title: String
 
@@ -27,7 +27,7 @@ public struct Board: Codable, Hashable {
   public let bump_limit: Int
   public let image_limit: Int
 
-  public struct Cooldowns: Codable, Hashable {
+    public struct Cooldowns: Codable, Hashable, Sendable {
     public let threads: Int
     public let replies: Int
     public let images: Int
@@ -74,7 +74,7 @@ extension Board: Identifiable {
   }
 }
 
-public struct Boards: Codable {
+public struct Boards: Codable, Sendable {
   public let boards: [Board]
 }
 

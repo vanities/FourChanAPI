@@ -94,7 +94,7 @@ extension Page: Identifiable {
 public typealias Pages = [Page]
 
 /// A message from a user.
-public struct Post: Codable, Hashable {
+public struct Post: Codable, Hashable, Sendable {
   /// Post number.
   public let no: PostNumber
 
@@ -246,7 +246,7 @@ extension Post {
 ///
 /// Naming this "Thread" causes SwiftUI previews to fail to compile.
 /// Error: 'Thread' is ambiguous for type lookup in this context
-public struct ChanThread: Codable, Hashable {
+public struct ChanThread: Codable, Hashable, Sendable {
   public let posts: Posts
 }
 
